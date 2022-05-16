@@ -11,7 +11,7 @@ namespace ProjectPlanAutomation.PageObject
     {
         private IWebDriver _webDriver;
         private WebDriverWait _wait;
-        private IWebElement yesBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private IWebElement _yesBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
 
         public SignedInPage(IWebDriver webDriver, WebDriverWait wait)
         {
@@ -20,7 +20,7 @@ namespace ProjectPlanAutomation.PageObject
         }
         public void ClickYesButton()
         {
-            _wait.Until(ExpectedConditions.ElementToBeClickable(yesBTN)).Click();
+            _wait.Until(ExpectedConditions.ElementToBeClickable(_yesBTN)).Click();
         }
 
 

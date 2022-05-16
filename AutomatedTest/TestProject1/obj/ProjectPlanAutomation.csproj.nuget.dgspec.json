@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\ProjectPlanAutomation.csproj": {}
+    "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\ProjectPlanAutomation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\ProjectPlanAutomation.csproj": {
+    "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\ProjectPlanAutomation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\ProjectPlanAutomation.csproj",
+        "projectUniqueName": "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\ProjectPlanAutomation.csproj",
         "projectName": "ProjectPlanAutomation",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\ProjectPlanAutomation.csproj",
+        "projectPath": "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\ProjectPlanAutomation.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\obj\\",
+        "outputPath": "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

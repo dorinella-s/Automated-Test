@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qw6dSb7LtKg1DgSnee5huq+j3aACB3nJYQZ1XLUcnijDgPFeJyooIBXkdMMBGhkXSW0lYTQbXBfagAyQ4gbRKw==",
+  "dgSpecHash": "rB7u3DqcFvPTBwtWcnSsml5nyYTk27zYhov0S8XgqDlZYcz3UGlok8LYKzkr0PNrGNwFSYpf8hMV30hPqWYKDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\source\\repos\\TestProject1\\TestProject1\\ProjectPlanAutomation.csproj",
+  "projectFilePath": "D:\\InternshipTask\\Automated-Test\\AutomatedTest\\TestProject1\\ProjectPlanAutomation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",

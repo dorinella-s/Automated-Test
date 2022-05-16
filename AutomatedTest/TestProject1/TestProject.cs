@@ -28,30 +28,27 @@ namespace ProjectPlanAutomation
             signedInPage.ClickYesButton();
 
             HomePage homePage = new HomePage(webDriver, wait);
-            homePage.GetUserHelloText("Hi Automation");
-           
+            homePage.GetUserHelloText("Hi Automation");   
+        }
+        [Test]
+        public void LoginWithInvalidEmail()
+        {
+            LogInPage logInPage = new LogInPage(webDriver, wait);
+            logInPage.ClickLogInButton();
+
+            EmailPage emailPage = new EmailPage(webDriver, wait);
+            emailPage.WriteEmailText("hello @ . com");
+            emailPage.PressNextBTN();
+            emailPage.CheckErrorMessage("Enter a valid email address, phone number or Skype name.");
         }
 
 
         [Test]
         public void FilterNotificationByEntityType()
         {
-            LogInPage logInPage = new LogInPage(webDriver, wait);
-            logInPage.ClickLogInButton();
-
-            EmailPage emailPage = new EmailPage(webDriver, wait);
-            emailPage.WriteEmailText("automation.pp@amdaris.com");
-            emailPage.PressNextBTN();
-
-            PasswordPage passwordPage = new PasswordPage(webDriver, wait);
-            passwordPage.WritePasswdText("10704-observe-MODERN-products-STRAIGHT-69112");
-            passwordPage.PressNextBTN();
-
-            SignedInPage signedInPage = new SignedInPage(webDriver, wait);
-            signedInPage.ClickYesButton();
+            LoginSuccessfulIntoAdminAccount();
 
             HomePage homePage = new HomePage(webDriver, wait);
-            homePage.GetUserHelloText("Hi Automation");
             homePage.ClickNotificationBTN();
             homePage.ClickFilterIcon();
             homePage.ClickEntityType();
@@ -62,27 +59,25 @@ namespace ProjectPlanAutomation
         [Test]
         public void SearchProjectWithSpecificWord()
         {
-            LogInPage logInPage = new LogInPage(webDriver, wait);
-            logInPage.ClickLogInButton();
-
-            EmailPage emailPage = new EmailPage(webDriver, wait);
-            emailPage.WriteEmailText("automation.pp@amdaris.com");
-            emailPage.PressNextBTN();
-
-            PasswordPage passwordPage = new PasswordPage(webDriver, wait);
-            passwordPage.WritePasswdText("10704-observe-MODERN-products-STRAIGHT-69112");
-            passwordPage.PressNextBTN();
-
-            SignedInPage signedInPage = new SignedInPage(webDriver, wait);
-            signedInPage.ClickYesButton();
+            LoginSuccessfulIntoAdminAccount();
 
             HomePage homePage = new HomePage(webDriver, wait);
-            homePage.GetUserHelloText("Hi Automation");
             homePage.OpenProjectPage();
             homePage.WriteProjectName("Amdaris");
             homePage.FindProjectByName("Amdaris");
+            homePage.CheckNumberOfResults();
 
         }
+        [Test]
+        public void SearchInexistingProject()
+        {
+            LoginSuccessfulIntoAdminAccount();
 
+            HomePage homePage = new HomePage(webDriver, wait);
+            homePage.OpenProjectPage();
+            homePage.WriteProjectName("----");
+            homePage.FindInexistingProject("No Such Projects");
+
+        }
     }
 }

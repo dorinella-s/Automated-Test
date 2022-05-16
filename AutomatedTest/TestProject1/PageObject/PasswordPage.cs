@@ -11,8 +11,8 @@ namespace ProjectPlanAutomation.PageObject
     {
         private IWebDriver _webDriver;
         private WebDriverWait _wait;
-        private By passwdField => By.XPath("//input[@type = 'password']");
-        private IWebElement nextBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private By _passwdField => By.XPath("//input[@type = 'password']");
+        private IWebElement _nextBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
         public PasswordPage(IWebDriver webDriver, WebDriverWait wait)
         {
             _webDriver = webDriver;
@@ -20,11 +20,11 @@ namespace ProjectPlanAutomation.PageObject
         }
         public void WritePasswdText(string passwd)
         {
-            _wait.Until(ExpectedConditions.ElementIsVisible(passwdField)).SendKeys(passwd);
+            _wait.Until(ExpectedConditions.ElementIsVisible(_passwdField)).SendKeys(passwd);
         }
         public void PressNextBTN()
         {
-            _wait.Until(ExpectedConditions.ElementToBeClickable(nextBTN)).Click();
+            _wait.Until(ExpectedConditions.ElementToBeClickable(_nextBTN)).Click();
         }
     }
 }

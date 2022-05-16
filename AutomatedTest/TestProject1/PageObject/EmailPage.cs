@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -7,12 +8,14 @@ using System.Text;
 
 namespace ProjectPlanAutomation.PageObject
 {
-    public class EmailPage
+    public class EmailPage 
     {
         private IWebDriver _webDriver;
         private WebDriverWait _wait;
-        private IWebElement emailField => _webDriver.FindElement(By.XPath("//input[@type = 'email']"));
-        private IWebElement nextBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private IWebElement _emailField => _webDriver.FindElement(By.XPath("//input[@type = 'email']"));
+        private IWebElement _nextBTN => _webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private By _errorMessage => By.Id("usernameError");
+
         public EmailPage(IWebDriver webDriver, WebDriverWait wait)
         {
             _webDriver = webDriver;
@@ -20,11 +23,19 @@ namespace ProjectPlanAutomation.PageObject
         }
         public void WriteEmailText(string email)
         {
-            _wait.Until(ExpectedConditions.ElementToBeClickable(emailField)).SendKeys(email);
+            _wait.Until(ExpectedConditions.ElementToBeClickable(_emailField)).SendKeys(email);
         }
         public void PressNextBTN()
         {
-            _wait.Until(ExpectedConditions.ElementToBeClickable(nextBTN)).Click();
+            _wait.Until(ExpectedConditions.ElementToBeClickable(_nextBTN)).Click();
+        }
+
+        public void CheckErrorMessage(string exceptedResult)
+        {
+            string actualResultErrorMessage = _wait.Until(ExpectedConditions
+                .ElementIsVisible(_errorMessage))
+                .Text;
+            Assert.AreEqual(exceptedResult, actualResultErrorMessage);
         }
     }
 }
