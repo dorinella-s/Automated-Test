@@ -42,6 +42,22 @@ namespace ProjectPlanAutomation
             emailPage.CheckErrorMessage("Enter a valid email address, phone number or Skype name.");
         }
 
+        [Test]
+        public void LoginWithInvalidPassword()
+        {
+            LogInPage logInPage = new LogInPage(webDriver, wait);
+            logInPage.ClickLogInButton();
+
+            EmailPage emailPage = new EmailPage(webDriver, wait);
+            emailPage.WriteEmailText("automation.pp@amdaris.com");
+            emailPage.PressNextBTN();
+
+            PasswordPage passwordPage = new PasswordPage(webDriver, wait);
+            passwordPage.WritePasswdText("aaaaaaaaaaaaaa123");
+            passwordPage.PressNextBTN();
+
+            passwordPage.CheckErrorMessage("Your account or password is incorrect. If you can't remember your password, reset it now.");
+        }
 
         [Test]
         public void FilterNotificationByEntityType()
@@ -61,11 +77,11 @@ namespace ProjectPlanAutomation
         {
             LoginSuccessfulIntoAdminAccount();
 
-            HomePage homePage = new HomePage(webDriver, wait);
-            homePage.OpenProjectPage();
-            homePage.WriteProjectName("Amdaris");
-            homePage.FindProjectByName("Amdaris");
-            homePage.CheckNumberOfResults();
+            ProjectPage projectPage = new ProjectPage(webDriver, wait);
+            projectPage.OpenProjectPage();
+            projectPage.WriteProjectName("Amdaris");
+            projectPage.FindProjectByName("Amdaris");
+            projectPage.CheckNumberOfResults();
 
         }
         [Test]
@@ -73,10 +89,10 @@ namespace ProjectPlanAutomation
         {
             LoginSuccessfulIntoAdminAccount();
 
-            HomePage homePage = new HomePage(webDriver, wait);
-            homePage.OpenProjectPage();
-            homePage.WriteProjectName("----");
-            homePage.FindInexistingProject("No Such Projects");
+            ProjectPage projectPage = new ProjectPage(webDriver, wait);
+            projectPage.OpenProjectPage();
+            projectPage.WriteProjectName("----");
+            projectPage.FindInexistingProject("No Such Projects");
 
         }
     }

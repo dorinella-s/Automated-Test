@@ -14,7 +14,7 @@ namespace ProjectPlanAutomation
         protected WebDriverWait wait;
 
         [SetUp]
-        public void SetUpDomain()
+        public void SetUpDriver()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--start-maximized");

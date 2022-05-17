@@ -7,20 +7,20 @@ using System.Text;
 
 namespace ProjectPlanAutomation.PageObject
 {
-    public class LogInPage
+    public class LogInPage : SetUp
     {
-        private IWebDriver _webDriver;
-        private WebDriverWait _wait;
-        private IWebElement _logInBTN => _webDriver.FindElement(By.CssSelector(".button > span"));
+        private IWebElement _logInBTN => webDriver.FindElement(By.CssSelector(".button > span"));
 
         public LogInPage(IWebDriver webDriver, WebDriverWait wait)
         {
-            _webDriver = webDriver;
-            _wait = wait;
+            base.webDriver = webDriver;
+            base.wait = wait;
         }
         public void ClickLogInButton()
         {
-            _wait.Until(ExpectedConditions.ElementToBeClickable(_logInBTN)).Click();
+            wait.Until(ExpectedConditions
+                .ElementToBeClickable(_logInBTN))
+                .Click();
         }
     }
 }
