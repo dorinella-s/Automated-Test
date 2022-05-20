@@ -10,14 +10,16 @@ namespace ProjectPlanAutomation.PageObject
 {
     class PasswordPage : SetUp
     {
-        private By _passwdField => By.XPath("//input[@type = 'password']");
-        private IWebElement _nextBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
-        private By _errorMessage => By.Id("passwordError");
+      
         public PasswordPage(IWebDriver webDriver, WebDriverWait wait)
         {
             base.webDriver = webDriver;
             base.wait = wait;
         }
+
+        private By _passwdField => By.XPath("//input[@type = 'password']");
+        private IWebElement _nextBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private By _errorMessage => By.Id("passwordError");
         public void WritePasswdText(string passwd)
         {
             wait.Until(ExpectedConditions

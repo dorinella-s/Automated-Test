@@ -10,15 +10,18 @@ namespace ProjectPlanAutomation.PageObject
 {
     public class EmailPage : SetUp
     {
-        private IWebElement _emailField => webDriver.FindElement(By.XPath("//input[@type = 'email']"));
-        private IWebElement _nextBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
-        private By _errorMessage => By.Id("usernameError");
+       
 
         public EmailPage(IWebDriver webDriver, WebDriverWait wait)
         {
             base.webDriver = webDriver;
             base.wait = wait;
         }
+
+        private IWebElement _emailField => webDriver.FindElement(By.XPath("//input[@type = 'email']"));
+        private IWebElement _nextBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        private By _errorMessage => By.Id("usernameError");
+
         public void WriteEmailText(string email)
         {
             wait.Until(ExpectedConditions

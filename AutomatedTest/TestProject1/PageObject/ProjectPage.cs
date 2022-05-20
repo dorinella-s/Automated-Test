@@ -10,17 +10,17 @@ namespace ProjectPlanAutomation.PageObject
 {
     public class ProjectPage : SetUp
     {
-        private IWebElement _projectBTN => webDriver.FindElement(By.CssSelector("a#projects-tab"));
-        private IWebElement _searchField => webDriver.FindElement(By.CssSelector("input.input-search"));
-        private IWebElement _searchResult => webDriver.FindElement(By.CssSelector("app-project-item > div > div > a > h5 > span"));
-        private IWebElement _searchNotFound => webDriver.FindElement(By.XPath(("//div[contains(text(),'No Such Projects')]")));
-        private By _numberOfResults => By.CssSelector("div.num");
+        
         public ProjectPage(IWebDriver webDriver, WebDriverWait wait)
         {
             base.webDriver = webDriver;
             base.wait = wait;
         }
-
+        private IWebElement _projectBTN => webDriver.FindElement(By.CssSelector("a#projects-tab"));
+        private IWebElement _searchField => webDriver.FindElement(By.CssSelector("input.input-search"));
+        private IWebElement _searchResult => webDriver.FindElement(By.CssSelector("app-project-item > div > div > a > h5 > span"));
+        private IWebElement _searchNotFound => webDriver.FindElement(By.XPath(("//div[contains(text(),'No Such Projects')]")));
+        private By _numberOfResults => By.CssSelector("div.num");
         public void OpenProjectPage()
         {
             wait.Until(ExpectedConditions

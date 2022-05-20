@@ -9,13 +9,15 @@ namespace ProjectPlanAutomation.PageObject
 {
     public class LogInPage : SetUp
     {
-        private IWebElement _logInBTN => webDriver.FindElement(By.CssSelector(".button > span"));
+       
 
         public LogInPage(IWebDriver webDriver, WebDriverWait wait)
         {
             base.webDriver = webDriver;
             base.wait = wait;
         }
+
+        private IWebElement _logInBTN => webDriver.FindElement(By.CssSelector(".button > span"));
         public void ClickLogInButton()
         {
             wait.Until(ExpectedConditions

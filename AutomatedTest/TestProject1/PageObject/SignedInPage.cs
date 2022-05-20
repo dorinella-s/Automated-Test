@@ -9,13 +9,15 @@ namespace ProjectPlanAutomation.PageObject
 {
     class SignedInPage : SetUp
     {
-        private IWebElement _yesBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
+        
 
         public SignedInPage(IWebDriver webDriver, WebDriverWait wait)
         {
             base.webDriver = webDriver;
             base.wait = wait;
         }
+
+        private IWebElement _yesBTN => webDriver.FindElement(By.XPath("//input[@type = 'submit']"));
         public void ClickYesButton()
         {
             wait.Until(ExpectedConditions
